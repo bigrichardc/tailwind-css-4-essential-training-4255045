@@ -586,6 +586,21 @@
       max-width: 96rem;
     }
   }
+  .m-12 {
+    margin: calc(var(--spacing) * 12);
+  }
+  .mx-auto {
+    margin-inline: auto;
+  }
+  .-mt-12 {
+    margin-top: calc(var(--spacing) * -12);
+  }
+  .mt-2 {
+    margin-top: calc(var(--spacing) * 2);
+  }
+  .mt-4 {
+    margin-top: calc(var(--spacing) * 4);
+  }
   .block {
     display: block;
   }
@@ -608,6 +623,24 @@
     width: calc(var(--spacing) * 16);
     height: calc(var(--spacing) * 16);
   }
+  .h-16 {
+    height: calc(var(--spacing) * 16);
+  }
+  .h-25 {
+    height: calc(var(--spacing) * 25);
+  }
+  .h-dvh {
+    height: 100dvh;
+  }
+  .h-lvh {
+    height: 100lvh;
+  }
+  .w-16 {
+    width: calc(var(--spacing) * 16);
+  }
+  .w-20 {
+    width: calc(var(--spacing) * 20);
+  }
   .w-75 {
     width: calc(var(--spacing) * 75);
   }
@@ -625,6 +658,12 @@
   }
   .resize {
     resize: both;
+  }
+  .space-x-2 {
+    :where(& > :not(:last-child)) {
+      margin-inline-start: calc(calc(var(--spacing) * 2) * var(--tw-space-x-reverse));
+      margin-inline-end: calc(calc(var(--spacing) * 2) * calc(1 - var(--tw-space-x-reverse)));
+    }
   }
   .rounded-2xl {
     border-radius: var(--radius-2xl);
@@ -685,9 +724,6 @@
   .border-indigo-100 {
     border-color: var(--color-indigo-100);
   }
-  .border-indigo-100\/75 {
-    border-color: color-mix(in oklch, var(--color-indigo-100) 75%, transparent);
-  }
   .border-indigo-200 {
     border-color: var(--color-indigo-200);
   }
@@ -730,12 +766,6 @@
   .bg-white {
     background-color: var(--color-white);
   }
-  .bg-white\/20 {
-    background-color: color-mix(in oklch, var(--color-white) 20%, transparent);
-  }
-  .bg-white\/50 {
-    background-color: color-mix(in oklch, var(--color-white) 50%, transparent);
-  }
   .bg-conic {
     --tw-gradient-position: in oklch,;
     background-image: conic-gradient(var(--tw-gradient-stops));
@@ -746,14 +776,6 @@
   }
   .bg-linear-to-br {
     --tw-gradient-position: to bottom right in oklch,;
-    background-image: linear-gradient(var(--tw-gradient-stops));
-  }
-  .bg-linear-to-br\/ {
-    --tw-gradient-position: to bottom right in ,;
-    background-image: linear-gradient(var(--tw-gradient-stops));
-  }
-  .bg-linear-to-br\/longer {
-    --tw-gradient-position: to bottom right in oklch longer hue,;
     background-image: linear-gradient(var(--tw-gradient-stops));
   }
   .bg-radial {
@@ -767,9 +789,6 @@
   .from-cyan-700 {
     --tw-gradient-from: var(--color-cyan-700);
     --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position,) var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
-  }
-  .from-25\% {
-    --tw-gradient-from-position: 25%;
   }
   .via-fuchsia-500 {
     --tw-gradient-via: var(--color-fuchsia-500);
@@ -788,17 +807,29 @@
     --tw-gradient-to: var(--color-purple-700);
     --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position,) var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
   }
-  .to-75\% {
-    --tw-gradient-to-position: 75%;
-  }
   .object-cover {
     object-fit: cover;
+  }
+  .object-top {
+    object-position: top;
   }
   .p-3 {
     padding: calc(var(--spacing) * 3);
   }
+  .p-4 {
+    padding: calc(var(--spacing) * 4);
+  }
+  .p-5 {
+    padding: calc(var(--spacing) * 5);
+  }
   .p-8 {
     padding: calc(var(--spacing) * 8);
+  }
+  .px-4 {
+    padding-inline: calc(var(--spacing) * 4);
+  }
+  .py-2 {
+    padding-block: calc(var(--spacing) * 2);
   }
   .pt-4 {
     padding-top: calc(var(--spacing) * 4);
@@ -938,6 +969,7 @@
       --tw-rotate-z: rotateZ(0);
       --tw-skew-x: skewX(0);
       --tw-skew-y: skewY(0);
+      --tw-space-x-reverse: 0;
       --tw-border-style: solid;
       --tw-gradient-position: initial;
       --tw-gradient-from: #0000;
@@ -1025,6 +1057,11 @@
   syntax: "<transform-function>";
   inherits: false;
   initial-value: skewY(0);
+}
+@property --tw-space-x-reverse {
+  syntax: "<number>";
+  inherits: false;
+  initial-value: 0;
 }
 @property --tw-border-style {
   syntax: "<custom-ident>";
